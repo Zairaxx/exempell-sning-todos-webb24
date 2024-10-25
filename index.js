@@ -1,27 +1,13 @@
-let todoInput = document.querySelector("#todo");
-let addTodoBtn = document.querySelector("#addTodo");
-let todoList = document.querySelector("#todoList");
+let btn = document.querySelector("button");
 
-addTodoBtn.addEventListener("click", () => {
-    if(todoList.children.length === 5) {
-        alert("Too many todos. Get some work done first!");
-    } else {
-    let li = document.createElement("li");
-    let newTodo = todoInput.value;
 
-    //Delete btn
+btn.addEventListener("click", () => {
+    //Hur vi hittar en vald radio-button 
+    let choice = document.querySelector("[name='color']:checked")
+    console.log("Vald färg", choice.value);
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.addEventListener("click", (event) => {
-        event.target.parentElement.remove()
-    })
+   let allCheckedBoxes = document.querySelectorAll("[name='brands']:checked")
+   
+   allCheckedBoxes.forEach(checkbox => console.log("Vald märke:", checkbox.value))
 
-    li.textContent = newTodo;
-
-    li.append(deleteBtn);
-    
-
-     todoList.append(li);
-}
 })
